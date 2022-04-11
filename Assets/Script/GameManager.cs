@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public static bool allTaken;
 
     //cards spawned and display
+    //deck: spawn list
+    //display: spread out list 
     #region DeckObjectLists
     List<GameObject> deck = new List<GameObject>();
     List<GameObject> display = new List<GameObject>();
@@ -39,9 +41,10 @@ public class GameManager : MonoBehaviour
     public Vector3 displayPos; //get the pos of display spot 
     public GameObject startPos; //refer to startpos spot in scene
     public float distancing; //distance between each cards
+    
     #endregion
     [HideInInspector]
-    public bool isDisplay;
+    public bool isDisplay;//check if already displayed
 
     //to spawn cards
     private void CreateCards()

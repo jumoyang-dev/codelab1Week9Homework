@@ -288,6 +288,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8850106458471082555, guid: c6ad1f4f373e8cf4e9b13d0ce12fd924, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9049539531795418754, guid: c6ad1f4f373e8cf4e9b13d0ce12fd924, type: 3}
       propertyPath: m_Name
       value: Slot (4)

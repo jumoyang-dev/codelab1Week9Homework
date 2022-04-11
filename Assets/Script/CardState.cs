@@ -6,12 +6,13 @@ public class CardState : MonoBehaviour
 {
 
     float time = 0;
-    public Color backColor, frontColor; 
+    public Color backColor, frontColor;
+    DragAndDrop dragDrop;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        dragDrop = GetComponent<DragAndDrop>();
     }
 
     // Update is called once per frame
@@ -31,9 +32,13 @@ public class CardState : MonoBehaviour
         SmoothStepLerp(endPos, duration);
         if(Vector3.Distance(transform.position,endPos) <= 0.05f){
             time = 0;
+            dragDrop.enabled = true;
+            //set the originalPos in DragAndDrop to the current transform
+            dragDrop.originalPos = (Vector2)transform.position;
             return true;
         }
         else{
+            dragDrop.enabled = false;
             return false;
         }
     }

@@ -7,21 +7,21 @@ public class DragAndDrop : MonoBehaviour
     private bool isDragging;
     private bool enterSlot;
 
-    private Vector2 originalPos;
+    [HideInInspector]
+    public Vector2 originalPos;
     private Vector2 slotPos;
 
-    private void Awake()
-    {
-        originalPos = transform.position;    
-    }
+    Slot slot;
+
     void Update()
     {
         if (!isDragging) return;
-
+        print("Dragging");
         //get mousePos
         Vector2 mousePos = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //move transform.pos of Card to mousepos
         transform.position = mousePos;
+
     }
 
     private void OnMouseDrag()
@@ -30,10 +30,14 @@ public class DragAndDrop : MonoBehaviour
     }
     private void OnMouseUp()
     {
+        //if a slot is already occupied, return to the original position
+
+
+        //if not in slot, return to original position
         if (!enterSlot)
-        {
+        {     
             transform.position = originalPos;
-        }
+        }//if in slot, stay in slot position
         else
         {
             transform.position = slotPos;
@@ -43,7 +47,8 @@ public class DragAndDrop : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D triggerCollider)
     {
-        if (triggerCollider.tag == "Slot")
+        slot = triggerCollider.GetComponent<Slot>();
+        if (triggerCollider.tag == "Slot" && !slot.occupied)
         {
             enterSlot = true;
             slotPos = triggerCollider.transform.position;

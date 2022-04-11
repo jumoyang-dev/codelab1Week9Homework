@@ -34,8 +34,8 @@ public class GameManager : MonoBehaviour
     public GameObject startPos;
     public float distancing;
     #endregion
-
-    bool isDisplay;
+    [HideInInspector]
+    public bool isDisplay;
 
     private void CreateCards()
     {
@@ -59,6 +59,11 @@ public class GameManager : MonoBehaviour
         {
             displayCard();
         }
+        if (isDisplay)
+        {
+
+        }
+
     }
 
     private void displayCard()
@@ -75,7 +80,7 @@ public class GameManager : MonoBehaviour
 
             if(deck.Count == 0)
             {
-                isDisplay = true; 
+                isDisplay = true;
             }
         }
     }

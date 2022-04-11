@@ -2,43 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class AssignText : MonoBehaviour
 {
-    //string content;
-    //const char DELIMITER = '|';
-    //const string FILE_NAME = "CardText.txt";
-    
-    // Start is called before the first frame update
 
-    public List<string> cardText = new List<string>();
+    public List<string> cardTextList = new List<string>();
+    public List<Text> thisCardText = new List<Text>();
+    // public Text text1;
+    // public Text text2;
+    // public Text text3;
+    // public Text text4;
+    // public Text text5;
 
     void Start()
     {
-       //StreamReader reader = new StreamReader(FILE_NAME);
-       //content = reader.ReadLine();
-
-       //char[] delimiterChars = { '|' };
-       //string[] textSplit = content.Split(delimiterChars);
-
-       //Debug.Log(textSplit[0]);
-       //Debug.Log(textSplit[1]);
-       
-       //reader.Close();
 
 
-       cardText.Add("Mario is a robber.");
-       cardText.Add("The Kingdom of the peaceful mushroom people was invaded by the Koopa.");
-       cardText.Add("Mario kills a large number of mushroom people.");
-       cardText.Add("Mario steals a lot of gold and money.");
-       cardText.Add("Koopa is mad. ");
-       cardText.Add("Mario defeats Koopa.");
-       cardText.Add("Mario snatches the princess away.");
-       cardText.Add("Princess is happy.");
-       cardText.Add("Mushroom people are smiling.");
+       cardTextList.Add("Mario is a robber.");
+       cardTextList.Add("The Kingdom of the peaceful mushroom people was invaded by the Koopa.");
+       cardTextList.Add("Mario kills a large number of mushroom people.");
+       cardTextList.Add("Mario steals a lot of gold and money.");
+       cardTextList.Add("Koopa is mad. ");
+       cardTextList.Add("Mario defeats Koopa.");
+       cardTextList.Add("Mario snatches the princess away.");
+       cardTextList.Add("Princess is happy.");
+       cardTextList.Add("Mushroom people are smiling.");
 
-       Debug.Log(cardText[3]);
+       //Debug.Log(cardTextList[3]);
+       //Debug.Log(cardTextList.Count);
 
 
 
@@ -47,6 +39,22 @@ public class AssignText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //string thisCardText = cardTextList[2];
+        int count = 1;
         
+        for (int i = cardTextList.Count-1; i >=4 ; i--)
+        {
+            
+            int number = Random.Range(0, cardTextList.Count-1);
+            thisCardText[count-1].text = cardTextList[number];
+            cardTextList.Remove(cardTextList[number]);
+            Debug.Log(cardTextList[number]);
+            count ++;
+
+         }
+
+        //txet1.text = 
+
+
     }
 }

@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
     {
         return instance;
     }
+    [Header("Slot")]
+    public List<Slot> slot = new List<Slot>();
+    [HideInInspector]
+    public static bool allTaken;
 
     #region DeckObjectLists
     List<GameObject> deck = new List<GameObject>();
@@ -55,13 +59,19 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (slot[0].occupied && slot[1].occupied && slot[2].occupied && slot[3].occupied && slot[4].occupied)
+        {
+            allTaken = true;
+            print(allTaken);
+        }else
+        {
+            allTaken = false;
+        }
+
+
         if (!isDisplay)
         {
             displayCard();
-        }
-        if (isDisplay)
-        {
-
         }
 
     }

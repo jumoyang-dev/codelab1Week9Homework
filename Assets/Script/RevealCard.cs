@@ -19,7 +19,10 @@ public class RevealCard : MonoBehaviour
     // Update is called once per frame
     public void Activate()
     {
-        cardFront.SetActive(true);
-        frontTexts.SetActive(true);
+        if (GameManager.allTaken)
+        { 
+            cardFront.SetActive(true);
+            frontTexts.SetActive(true);
+        }
     }
 }

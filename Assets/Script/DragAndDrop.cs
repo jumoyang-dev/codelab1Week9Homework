@@ -30,8 +30,6 @@ public class DragAndDrop : MonoBehaviour
     }
     private void OnMouseUp()
     {
-        //if a slot is already occupied, return to the original position
-
 
         //if not in slot, return to original position
         if (!enterSlot)
